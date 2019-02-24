@@ -42,7 +42,15 @@ public class CommandInterpreter {
 				prevArg = null;
 				continue;
 			}
+			if (commandBody.getBody().equals("exit")) {
+				env.stop();
+				prevArg = null;
+				break;
+			}
 			prevArg = commandToExecute.execute(commandBody.getArgs(), prevArg);
+		}
+		if (prevArg == null) {
+			return "\n";
 		}
 		return prevArg;
 	}

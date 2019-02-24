@@ -9,10 +9,17 @@ public class Echo implements Command {
 	@Override
 	public String execute(List<String> args, @Nullable String stringFromPrevCommand) {
 		StringBuilder ans = new StringBuilder();
-		for (String arg : args) {
-			ans.append(arg);
-			ans.append(" ");
+		int size = args.size();
+		for (int i = 0; i < size; i++) {
+			ans.append(args.get(i));
+			if (i != size - 1) {
+				ans.append(" ");
+			}
 		}
-		return ans.toString();
+		String answer = ans.toString();
+		if (answer.equals("")) {
+			return null;
+		}
+		return answer + "\n";
 	}
 }

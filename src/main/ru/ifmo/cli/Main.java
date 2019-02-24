@@ -12,7 +12,7 @@ public class Main {
 		while (env.toContinue()) {
 			System.out.print("~$ ");
 			String command = bf.readLine();
-			System.out.println(ci.interpret(command, env));
+			System.out.print(ci.interpret(command, env));
 		}
 	}
 }
