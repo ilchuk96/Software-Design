@@ -2,6 +2,7 @@ package ru.ifmo.cli.commands;
 
 import com.sun.istack.internal.Nullable;
 import ru.ifmo.cli.Command;
+import ru.ifmo.cli.exceptions.SyntaxException;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -90,7 +91,7 @@ public class Wc implements Command {
 					totalWords += stats.getWords();
 					totalBytes += stats.getBytes();
 				} catch (java.io.IOException e) {
-					throw new RuntimeException("No such file: " + file);
+					throw new SyntaxException("No such file: " + file);
 				}
 			}
 			ans.append(totalLines + "\t" + totalWords + "\t" + totalBytes + "\ttotal");

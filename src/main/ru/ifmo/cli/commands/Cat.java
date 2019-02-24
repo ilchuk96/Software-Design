@@ -2,6 +2,7 @@ package ru.ifmo.cli.commands;
 
 import com.sun.istack.internal.Nullable;
 import ru.ifmo.cli.Command;
+import ru.ifmo.cli.exceptions.SyntaxException;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -24,7 +25,7 @@ public class Cat implements Command {
 			try {
 				ans.append(new String(Files.readAllBytes(Paths.get(file))));
 			} catch (java.io.IOException e) {
-				throw new RuntimeException("No such file: " + file);
+				throw new SyntaxException("No such file: " + file);
 			}
 		}
 		return ans.toString();

@@ -2,6 +2,7 @@ package ru.ifmo.cli.commands;
 
 import com.sun.istack.internal.Nullable;
 import ru.ifmo.cli.Command;
+import ru.ifmo.cli.exceptions.SyntaxException;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class ProcessCommand implements Command {
 		try {
 			process = processBuilder.start();
 		} catch (java.io.IOException e) {
-			throw new RuntimeException("Command " + command + " not found.");
+			throw new SyntaxException("Command " + command + " not found.");
 		}
 
 		try {

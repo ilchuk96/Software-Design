@@ -39,13 +39,11 @@ public class CommandInterpreter {
 				String body = commandBody.getBody();
 				int position = body.indexOf("=");
 				env.setVar(body.substring(0, position), body.substring(position+1));
-				prevArg = null;
-				continue;
+				return "";
 			}
 			if (commandBody.getBody().equals("exit")) {
 				env.stop();
-				prevArg = null;
-				break;
+				return "";
 			}
 			prevArg = commandToExecute.execute(commandBody.getArgs(), prevArg);
 		}

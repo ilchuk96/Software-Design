@@ -28,7 +28,7 @@ public class CommandInterpreterTest {
 
 	@Test
 	public void ExitEchoTest() {
-		assertEquals("\n", ci.interpret("exit | echo 5", env));
+		assertEquals("", ci.interpret("exit | echo 5", env));
 		assertFalse(env.toContinue());
 	}
 }
