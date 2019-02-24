@@ -8,6 +8,12 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Cat implements Command {
+	/**
+	 * Print file.
+	 * @param args Files' paths.
+	 * @param stringFromPrevCommand File path or null.
+	 * @return File-string.
+	 */
 	@Override
 	public String execute(List<String> args, @Nullable String stringFromPrevCommand) {
 		if (args.isEmpty()) {

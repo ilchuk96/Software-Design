@@ -10,7 +10,7 @@ public class Main {
 		CommandInterpreter ci = new CommandInterpreter();
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 		while (env.toContinue()) {
-			System.out.print("~$ ");
+			System.out.print("> ");
 			String command = bf.readLine();
 			System.out.print(ci.interpret(command, env));
 		}

@@ -42,7 +42,7 @@ public class ParserTest {
 		Environment env = new Environment();
 		env.setVar("x", "5");
 		env.setVar("y", "6");
-		String str = "command $x $x$y $x";
+		String str = "command $'x' $x$\"y\" $x";
 		List<String> lst = new ArrayList<>();
 		lst.add("5");
 		lst.add("5");

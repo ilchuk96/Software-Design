@@ -8,6 +8,9 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Wc implements Command {
+	/*
+	* Info abot file or string.
+	 */
 	private class WcNumbers {
 		private int lines;
 		private int words;
@@ -40,6 +43,11 @@ public class Wc implements Command {
 		}
 	}
 
+	/**
+	 * Get info about the string.
+	 * @param str String we need info about.
+	 * @return WcNumbers info about the string.
+	 */
 	private WcNumbers getStats(String str) {
 		int lines = str.split("\r\n|\r|\n").length;
 		int words = str.split("(\r|\n|\t| )+").length;
@@ -47,6 +55,12 @@ public class Wc implements Command {
 		return new WcNumbers(lines, words, bytes);
 	}
 
+	/**
+	 * Prints info about files/string.
+	 * @param args List of files.
+	 * @param stringFromPrevCommand String.
+	 * @return String - info about args.
+	 */
 	@Override
 	public String execute(List<String> args, @Nullable String stringFromPrevCommand) {
 		/*

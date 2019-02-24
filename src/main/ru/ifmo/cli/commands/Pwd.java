@@ -7,6 +7,12 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Pwd implements Command {
+	/**
+	 * Prints current path.
+	 * @param args Not used.
+	 * @param stringFromPrevCommand Not used.
+	 * @return String-path.
+	 */
 	@Override
 	public String execute(List<String> args, @Nullable String stringFromPrevCommand) {
 		return Paths.get(".").toAbsolutePath().toString() + "\n";

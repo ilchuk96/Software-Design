@@ -6,6 +6,12 @@ import ru.ifmo.cli.Command;
 import java.util.List;
 
 public class Echo implements Command {
+	/**
+	 * Print args.
+	 * @param args Arguments of the command.
+	 * @param stringFromPrevCommand Answer for previous command.
+	 * @return String-args.
+	 */
 	@Override
 	public String execute(List<String> args, @Nullable String stringFromPrevCommand) {
 		StringBuilder ans = new StringBuilder();

@@ -11,10 +11,16 @@ public class CommandBody {
 		this.args = args;
 	}
 
+	/**
+	 * @return Command.
+	 */
 	public String getBody() {
 		return body;
 	}
 
+	/**
+	 * @return Command's arguments.
+	 */
 	public List<String> getArgs() {
 		return args;
 	}
