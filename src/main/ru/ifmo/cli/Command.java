@@ -2,6 +2,7 @@ package ru.ifmo.cli;
 
 import com.sun.istack.internal.Nullable;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface Command {

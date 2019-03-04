@@ -16,6 +16,7 @@ public class CommandInterpreter {
 			put("echo", new Echo());
 			put("wc", new Wc());
 			put("pwd", new Pwd());
+			put("grep", new Grep());
 		}
 	};
 
