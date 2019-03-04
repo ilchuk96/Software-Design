@@ -37,7 +37,15 @@ public class Grep implements Command {
 		int len = args.size();
 		int filesStartFrom = -1;
 		String regexp = null;
+		boolean prevIsA = false;
 		for (int i = 0; i < len; i++) {
+			if (prevIsA) {
+				prevIsA = false;
+				continue;
+			}
+			if (args.get(i).contains("A")) {
+				prevIsA = true;
+			}
 			if (!args.get(i).startsWith("-")) {
 				regexp = args.get(i);
 				filesStartFrom = i + 1;
@@ -64,7 +72,7 @@ public class Grep implements Command {
 		if (cmd.hasOption("A")) {
 			toPrint = Integer.parseInt(cmd.getOptionValue("A"));
 		}
-		int stillToPrint = 0;
+		int stillToPrint = -1;
 
 		if (filesStartFrom == len) {
 			if (stringFromPrevCommand == null) {
@@ -86,7 +94,11 @@ public class Grep implements Command {
 					ans.append("\n");
 				}
 			}
-			return ans.toString();
+			String str = ans.toString();
+			if (str.isEmpty()) {
+				return null;
+			}
+			return str;
 		}
 
 		boolean addFileName = filesStartFrom < len-1;
@@ -116,6 +128,10 @@ public class Grep implements Command {
 			}
 		}
 
-		return ans.toString();
+		String str = ans.toString();
+		if (str.isEmpty()) {
+			return null;
+		}
+		return str;
 	}
 }
